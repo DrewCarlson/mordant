@@ -14,6 +14,8 @@ allprojects {
     repositories {
         mavenCentral()
         jcenter()
+        // TODO: Remove
+        maven { setUrl("https://dl.bintray.com/drewcarlson/mordant") }
     }
 }
 
