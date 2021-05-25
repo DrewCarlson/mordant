@@ -21,8 +21,6 @@ kotlin {
     sourceSets {
         all {
             with(languageSettings) {
-                languageVersion = "1.5"
-                apiVersion = "1.5"
                 useExperimentalAnnotation("kotlin.RequiresOptIn")
             }
         }
@@ -37,7 +35,7 @@ kotlin {
         val commonTest by getting {
             dependencies {
                 implementation(kotlin("test"))
-                implementation("io.kotest:kotest-assertions-core:4.5.0")
+                implementation("io.kotest:kotest-assertions-core:4.6.0")
             }
         }
 
