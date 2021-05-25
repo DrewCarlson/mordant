@@ -102,10 +102,10 @@ internal object TerminalDetection {
         }
     }
 
-    private fun getTerm() = getEnv("TERM")?.lowercase()
+    private fun getTerm() = getEnv("TERM")?.toLowerCase()
 
     // https://github.com/termstandard/colors/
-    private fun getColorTerm() = getEnv("COLORTERM")?.lowercase()
+    private fun getColorTerm() = getEnv("COLORTERM")?.toLowerCase()
 
     private fun forcedColor(): AnsiLevel? {
         return when {
@@ -114,7 +114,7 @@ internal object TerminalDetection {
             getEnv("NO_COLOR") != null -> NONE
             // A lot of npm packages support the FORCE_COLOR envvar, although they all look for
             // different values. We try to support them all.
-            else -> when (getEnv("FORCE_COLOR")?.lowercase()) {
+            else -> when (getEnv("FORCE_COLOR")?.toLowerCase()) {
                 "0", "false", "none" -> NONE
                 "1", "", "true", "16color" -> ANSI16
                 "2", "256color" -> ANSI256
@@ -124,7 +124,7 @@ internal object TerminalDetection {
         }
     }
 
-    private fun getTermProgram() = getEnv("TERM_PROGRAM")?.lowercase()
+    private fun getTermProgram() = getEnv("TERM_PROGRAM")?.toLowerCase()
 
     // https://github.com/Microsoft/vscode/pull/30346
     private fun isVsCodeTerminal() = getTermProgram() == "vscode"
