@@ -34,8 +34,19 @@ kotlin {
         }
         val commonTest by getting {
             dependencies {
-                implementation(kotlin("test"))
+                implementation(kotlin("test-common"))
+                implementation(kotlin("test-annotations-common"))
                 implementation("io.kotest:kotest-assertions-core:4.6.0")
+            }
+        }
+        val jvmTest by getting {
+            dependencies {
+                implementation(kotlin("test-junit"))
+            }
+        }
+        val jsTest by getting {
+            dependencies {
+                api(kotlin("test-js"))
             }
         }
 
