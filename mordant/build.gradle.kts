@@ -9,7 +9,7 @@ plugins {
 
 kotlin {
     jvm()
-    js(BOTH) {
+    js(LEGACY) { // TODO: enable BOTH once we update to Kotlin 1.5
         nodejs()
         browser()
     }
@@ -28,7 +28,7 @@ kotlin {
         val commonMain by getting {
             dependsOn(gen)
             dependencies {
-                api("com.github.ajalt.colormath:colormath:2.1.0")
+                api("com.github.ajalt.colormath:colormath:2.0.0")
                 implementation("org.jetbrains:markdown:0.2.3")
             }
         }
@@ -36,7 +36,7 @@ kotlin {
             dependencies {
                 implementation(kotlin("test-common"))
                 implementation(kotlin("test-annotations-common"))
-                implementation("io.kotest:kotest-assertions-core:4.6.0")
+                implementation("io.kotest:kotest-assertions-core:4.5.0")
             }
         }
         val jvmTest by getting {
